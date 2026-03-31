@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — Meridian</title>
+<meta name="description" content="Apply to work with Meridian. We review every application personally and respond within 48 hours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../meridian.css">
+<style>
+  /* ── HERO ── */
+  .hero { background: var(--obsidian); padding: 160px 64px 80px; text-align: center; border-bottom: 1px solid var(--dark-border); }
+  .hero-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--amber); margin-bottom: 28px; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+  .hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(44px, 7vw, 80px); font-weight: 400; line-height: 1.05; color: var(--cream); margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0; animation: fadeUp 0.9s ease 0.3s forwards; }
+  .hero-sub { font-size: 15px; font-weight: 300; color: var(--dark-muted); line-height: 1.75; max-width: 400px; margin: 0 auto; opacity: 0; animation: fadeUp 0.9s ease 0.45s forwards; }
+  .hero-line { width: 1px; height: 56px; background: linear-gradient(to bottom, var(--charcoal), transparent); margin: 40px auto 0; opacity: 0; animation: fadeIn 1s ease 0.8s forwards; }
+
+  /* ── FORM SECTION ── */
+  .form-section { background: var(--parchment); border-top: 1px solid var(--light-border); padding: 88px 64px 100px; }
+  .form-section-inner { display: grid; grid-template-columns: 1fr 360px; gap: 80px; max-width: 1200px; margin: 0 auto; align-items: start; }
+
+  /* FORM */
+  .form-header-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 32px; }
+  .form-group { margin-bottom: 28px; }
+  .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  .form-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; display: block; }
+  .form-label .req { color: var(--amber); margin-left: 2px; }
+  .form-input {
+    width: 100%; padding: 14px 16px;
+    border: 1px solid var(--light-border);
+    border-bottom-color: var(--bone);
+    background: #fff; font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 300; color: var(--near-black);
+    outline: none; transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-input:focus { border-color: var(--amber); border-bottom-color: var(--amber); }
+  .form-input::placeholder { color: var(--faint); }
+  .form-textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--light-border); border-bottom-color: var(--bone); background: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300; color: var(--near-black); outline: none; resize: vertical; min-height: 120px; line-height: 1.65; transition: border-color 0.2s; -webkit-appearance: none; }
+  .form-textarea:focus { border-color: var(--amber); border-bottom-color: var(--amber); }
+  .form-textarea::placeholder { color: var(--faint); }
+  .form-select { width: 100%; padding: 14px 16px; border: 1px solid var(--light-border); border-bottom-color: var(--bone); background: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300; color: var(--near-black); outline: none; -webkit-appearance: none; appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239a8f82' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; transition: border-color 0.2s; }
+  .form-select:focus { border-color: var(--amber); }
+  .form-hint { font-size: 11px; font-weight: 300; color: var(--bone); margin-top: 6px; line-height: 1.5; }
+  .form-divider { height: 1px; background: var(--light-border); margin: 36px 0; }
+  .form-section-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; color: var(--near-black); margin-bottom: 20px; }
+  .submit-btn { display: inline-block; font-size: 12px; font-weight: 500; padding: 16px 40px; background: var(--near-black); color: var(--cream); border: none; font-family: 'DM Sans', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
+  .submit-btn:hover { background: var(--charcoal); }
+  .submit-note { font-size: 11px; font-weight: 300; color: var(--faint); margin-top: 16px; line-height: 1.65; }
+
+  /* SIDEBAR */
+  .sidebar { position: sticky; top: 80px; }
+  .sidebar-card { background: #fff; border: 1px solid var(--light-border); padding: 32px; margin-bottom: 16px; }
+  .sidebar-label { font-size: 9px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 20px; }
+  .sidebar-steps { display: flex; flex-direction: column; gap: 1px; background: var(--light-border); }
+  .sidebar-step { background: #fff; padding: 14px 16px; display: flex; gap: 12px; align-items: start; }
+  .sidebar-dot { width: 4px; height: 4px; background: var(--amber); flex-shrink: 0; margin-top: 6px; }
+  .sidebar-text { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.65; }
+  .sidebar-text strong { font-weight: 500; color: var(--near-black); }
+  .sidebar-dark { background: var(--obsidian); padding: 32px; }
+  .sidebar-dark-label { font-size: 9px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; }
+  .sidebar-quote-text { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 400; font-style: italic; color: var(--bone); line-height: 1.6; margin-bottom: 16px; }
+  .sidebar-quote-author { font-size: 10px; font-weight: 300; color: var(--dark-faint); letter-spacing: 0.06em; padding-bottom: 20px; border-bottom: 1px solid var(--dark-border); margin-bottom: 20px; }
+  .sidebar-founder { display: flex; align-items: center; gap: 14px; }
+  .sidebar-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 1px solid var(--charcoal); background: var(--ink); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .sidebar-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .sidebar-avatar-init { font-family: 'Playfair Display', serif; font-size: 13px; color: var(--bone); }
+  .sidebar-founder-name { font-size: 12px; font-weight: 500; color: var(--bone); }
+  .sidebar-founder-role { font-size: 10px; font-weight: 300; color: var(--dark-faint); margin-top: 2px; }
+
+  /* WHAT HAPPENS NEXT */
+  .next { background: var(--parchment); padding: 0 64px 100px; }
+  .next-max { max-width: 1200px; margin: 0 auto; }
+  .next-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--light-border); }
+  .next-step { background: var(--parchment); padding: 32px 28px; transition: background 0.2s; }
+  .next-step:hover { background: #fff; }
+  .next-num { font-size: 9px; font-weight: 500; letter-spacing: 0.14em; color: var(--amber); margin-bottom: 14px; }
+  .next-title { font-size: 14px; font-weight: 500; color: var(--near-black); margin-bottom: 8px; }
+  .next-desc { font-size: 13px; font-weight: 300; color: var(--faint); line-height: 1.65; }
+
+  /* SUCCESS STATE */
+  .success-state { display: none; text-align: center; padding: 80px 40px; }
+  .success-state.visible { display: block; }
+  .success-icon { width: 48px; height: 48px; border: 1px solid var(--amber); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+  .success-h2 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 400; color: var(--near-black); margin-bottom: 16px; }
+  .success-body { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.75; max-width: 440px; margin: 0 auto; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero, .form-section, .next { padding-left: 24px; padding-right: 24px; }
+    .form-section-inner { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .form-row-2 { grid-template-columns: 1fr; }
+    .next-steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-name">Meridian</span>
+    <span class="nav-logo-tag">Built for Lending</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Work</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+  <a href="/apply" class="nav-cta">Apply Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Apply to work with Meridian</p>
+  <h1 class="hero-h1">Let's see if we're a fit.</h1>
+  <p class="hero-sub">We work with a small number of clients at a time. Every application is reviewed personally by our team.</p>
+  <div class="hero-line"></div>
+</section>
+
+<!-- FORM + SIDEBAR -->
+<section class="form-section">
+  <div class="form-section-inner">
+
+    <!-- FORM -->
+    <div class="form-wrap reveal" id="form-container">
+      <p class="form-header-eyebrow">The application</p>
+
+      <form id="apply-form" novalidate>
+        <div class="form-row-2">
+          <div>
+            <label class="form-label" for="first-name">First name <span class="req">*</span></label>
+            <input class="form-input" type="text" id="first-name" name="first_name" placeholder="First name" required>
+          </div>
+          <div>
+            <label class="form-label" for="last-name">Last name <span class="req">*</span></label>
+            <input class="form-input" type="text" id="last-name" name="last_name" placeholder="Last name" required>
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div>
+            <label class="form-label" for="email">Email address <span class="req">*</span></label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div>
+            <label class="form-label" for="phone">Phone number</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="+1 (000) 000-0000">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="role">Your role <span class="req">*</span></label>
+          <select class="form-select" id="role" name="role" required>
+            <option value="" disabled selected>Select your role</option>
+            <option value="mortgage_broker">Mortgage Broker</option>
+            <option value="loan_officer">Loan Officer</option>
+            <option value="mortgage_advisor">Mortgage Advisor</option>
+            <option value="other">Other lending professional</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="company">Company or brokerage name</label>
+          <input class="form-input" type="text" id="company" name="company" placeholder="Your company">
+          <p class="form-hint">Leave blank if you operate independently</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="website">Current website</label>
+          <input class="form-input" type="url" id="website" name="website" placeholder="https://yoursite.com">
+          <p class="form-hint">No site yet? No problem — leave it blank</p>
+        </div>
+
+        <div class="form-divider"></div>
+        <h3 class="form-section-title">Tell us about your situation.</h3>
+
+        <div class="form-group">
+          <label class="form-label" for="help">How can we help? <span class="req">*</span></label>
+          <textarea class="form-textarea" id="help" name="how_can_we_help" placeholder="Tell us what you're looking to achieve. Be specific — this helps us understand if and how we can genuinely help you." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit application</button>
+        <p class="submit-note">We review every application personally and respond within 48 hours.<br>Your information is never shared or sold.</p>
+      </form>
+
+      <!-- SUCCESS STATE -->
+      <div class="success-state" id="success-state">
+        <div class="success-icon">
+          <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+            <path d="M1 7l5 5L17 1" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2 class="success-h2">Application received.</h2>
+        <p class="success-body">Thank you for applying. We will review your application and be in touch within 48 hours.</p>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar reveal reveal-delay-1">
+      <div class="sidebar-card">
+        <p class="sidebar-label">What happens next</p>
+        <div class="sidebar-steps">
+          <div class="sidebar-step">
+            <div class="sidebar-dot"></div>
+            <div class="sidebar-text"><strong>We review your application</strong> — usually within 24–48 hours.</div>
+          </div>
+          <div class="sidebar-step">
+            <div class="sidebar-dot"></div>
+            <div class="sidebar-text"><strong>If it's a fit</strong>, our team will reach out directly to book a 20-minute call.</div>
+          </div>
+          <div class="sidebar-step">
+            <div class="sidebar-dot"></div>
+            <div class="sidebar-text"><strong>On the call</strong>, we will discuss your goals, market, and what working together looks like.</div>
+          </div>
+          <div class="sidebar-step">
+            <div class="sidebar-dot"></div>
+            <div class="sidebar-text"><strong>No pressure, no pitch.</strong> Just a conversation to see if we're the right fit.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <p class="sidebar-label">Why apply vs. just reach out?</p>
+        <div class="sidebar-steps">
+          <div class="sidebar-step">
+            <div class="sidebar-dot"></div>
+            <div class="sidebar-text">Applications let us come to every conversation prepared — so you never waste time explaining context we should already know.</div>
+          </div>
+          <div class="sidebar-step">
+            <div class="sidebar-dot"></div>
+            <div class="sidebar-text">It also ensures we only take on clients we can genuinely help — keeping the standard of work high for everyone.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-dark">
+        <p class="sidebar-dark-label">From the team</p>
+        <p class="sidebar-quote-text">"Add your first client testimonial here when available."</p>
+        <p class="sidebar-quote-author">— Client Name · Mortgage Professional</p>
+        <div class="sidebar-founder">
+          <div class="sidebar-avatar">
+            <img src="../Photo_professionnel_Emmanuel.jpg" alt="Emmanuel Howard"
+              onerror="this.parentElement.innerHTML='<div class=\'sidebar-avatar-init\'>EH</div>'">
+          </div>
+          <div>
+            <div class="sidebar-founder-name">Emmanuel Howard</div>
+            <div class="sidebar-founder-role">Reviews every application personally</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT HAPPENS NEXT -->
+<section class="next">
+  <div class="next-max">
+    <div class="divider"></div>
+    <p class="eyebrow reveal">After you submit</p>
+    <h2 class="serif-h2 reveal">Here's exactly what happens.</h2>
+    <div class="next-steps">
+      <div class="next-step reveal">
+        <div class="next-num">01 —</div>
+        <div class="next-title">Application reviewed</div>
+        <div class="next-desc">We read every application within 48 hours. No auto-responses, no bots — a real person reviews every submission.</div>
+      </div>
+      <div class="next-step reveal reveal-delay-1">
+        <div class="next-num">02 —</div>
+        <div class="next-title">You hear back directly</div>
+        <div class="next-desc">If it's a fit, you'll get a personal email with a calendar link for a 20-minute intro call.</div>
+      </div>
+      <div class="next-step reveal reveal-delay-2">
+        <div class="next-num">03 —</div>
+        <div class="next-title">We get to work</div>
+        <div class="next-desc">If we're aligned after the call, we send a proposal and kick off within the week.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Meridian</div>
+  <ul class="footer-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Work</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/apply">Apply</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Meridian · Built for Lending</div>
+</footer>
+
+<script src="../meridian.js"></script>
+</body>
+</html>

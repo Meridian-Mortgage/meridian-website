@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Meridian</title>
+<meta name="description" content="Meridian is a design and marketing firm built exclusively for the lending industry. Learn about our mission and how we work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="meridian.css">
+<style>
+  /* ── HERO ── */
+  .hero { background: var(--obsidian); padding-top: 62px; min-height: 90vh; display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--dark-border); }
+  .hero-photo { position: relative; overflow: hidden; background: var(--ink); min-height: 560px; }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: grayscale(20%) contrast(1.05); display: block; }
+  .hero-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to right, transparent 70%, rgba(13,13,11,0.6) 100%), linear-gradient(to top, rgba(13,13,11,0.3) 0%, transparent 30%); }
+  .hero-photo-placeholder { width: 100%; height: 100%; background: var(--ink); display: flex; align-items: center; justify-content: center; min-height: 560px; }
+  .hero-photo-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal); border: 1px dashed var(--charcoal); padding: 8px 20px; }
+  .hero-right { padding: 100px 72px 80px 64px; display: flex; flex-direction: column; justify-content: flex-end; border-left: 1px solid var(--dark-border); }
+  .hero-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amber); margin-bottom: 28px; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+  .hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 400; line-height: 1.15; color: var(--cream); margin-bottom: 24px; opacity: 0; animation: fadeUp 0.9s ease 0.35s forwards; }
+  .hero-body { font-size: 15px; font-weight: 300; color: var(--dark-muted); line-height: 1.8; opacity: 0; animation: fadeUp 0.9s ease 0.5s forwards; }
+
+  /* ── MISSION ── */
+  .mission { background: var(--obsidian); border-top: 1px solid var(--dark-border); padding: 80px 64px; }
+  .mission-inner { border-left: 2px solid var(--amber); padding-left: 36px; max-width: 760px; margin: 0 auto; }
+  .mission-label { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-bottom: 18px; }
+  .mission-quote { font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.5vw, 28px); font-weight: 400; font-style: italic; color: var(--cream); line-height: 1.5; }
+
+  /* ── STORY ── */
+  .story { background: var(--parchment); border-top: 1px solid var(--light-border); padding: 100px 64px; }
+  .story-inner { display: grid; grid-template-columns: 260px 1fr; gap: 96px; max-width: 1200px; margin: 0 auto; }
+  .story-nav-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); margin-bottom: 16px; }
+  .story-nav-list { display: flex; flex-direction: column; gap: 1px; background: var(--light-border); position: sticky; top: 80px; }
+  .story-nav-item { background: var(--parchment); padding: 14px 16px; font-size: 13px; font-weight: 300; color: var(--faint); cursor: pointer; border-left: 2px solid transparent; transition: all 0.2s; text-decoration: none; display: block; }
+  .story-nav-item:hover { color: var(--near-black); background: #fff; }
+  .story-nav-item.active { color: var(--near-black); border-left-color: var(--amber); background: #fff; font-weight: 400; }
+  .story-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; }
+  .story-h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 38px); font-weight: 400; color: var(--near-black); line-height: 1.2; margin-bottom: 32px; }
+  .story-body { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 20px; }
+  .story-callout { font-size: 14px; font-weight: 300; color: var(--faint); line-height: 1.8; font-style: italic; padding-left: 24px; border-left: 1px solid var(--bone); margin-top: 32px; }
+
+  /* ── VALUES ── */
+  .values { background: var(--parchment); padding: 0 64px 100px; }
+  .values-max { max-width: 1200px; margin: 0 auto; }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--light-border); }
+  .value-item { background: var(--parchment); padding: 36px 32px; transition: background 0.2s; }
+  .value-item:hover { background: #fff; }
+  .value-num { font-size: 9px; font-weight: 500; letter-spacing: 0.16em; color: var(--amber); margin-bottom: 16px; }
+  .value-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; color: var(--near-black); margin-bottom: 12px; }
+  .value-desc { font-size: 13px; font-weight: 300; color: var(--faint); line-height: 1.7; }
+
+  /* ── PROCESS ── */
+  .process { background: var(--parchment); padding: 0 64px 100px; }
+  .process-max { max-width: 1200px; margin: 0 auto; }
+  .process-list { display: flex; flex-direction: column; gap: 1px; background: var(--light-border); }
+  .process-row { background: var(--parchment); padding: 28px 32px; display: grid; grid-template-columns: 56px 1fr 1fr; gap: 40px; align-items: start; transition: background 0.2s; }
+  .process-row:hover { background: #fff; }
+  .process-num { font-size: 11px; font-weight: 500; color: var(--amber); padding-top: 2px; letter-spacing: 0.08em; }
+  .process-title { font-size: 15px; font-weight: 500; color: var(--near-black); }
+  .process-desc { font-size: 13px; font-weight: 300; color: var(--faint); line-height: 1.7; }
+
+  /* ── FOUNDER SIGNATURE ── */
+  .founder-sig { background: var(--parchment); padding: 0 64px 100px; }
+  .founder-sig-max { max-width: 1200px; margin: 0 auto; }
+  .sig-inner { border: 1px solid var(--light-border); padding: 48px; display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; }
+  .sig-photo { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 1px solid var(--bone); background: var(--sand); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .sig-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .sig-photo-init { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--bone); }
+  .sig-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; color: var(--near-black); margin-bottom: 4px; }
+  .sig-role { font-size: 12px; font-weight: 300; color: var(--faint); margin-bottom: 12px; letter-spacing: 0.04em; }
+  .sig-bio { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.75; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-photo { min-height: 320px; }
+    .hero-right { padding: 64px 24px; border-left: none; border-top: 1px solid var(--dark-border); }
+    .mission, .story, .values, .process, .founder-sig { padding-left: 24px; padding-right: 24px; }
+    .story-inner { grid-template-columns: 1fr; }
+    .story-nav-list { position: static; }
+    .values-grid { grid-template-columns: 1fr; }
+    .process-row { grid-template-columns: 40px 1fr; }
+    .process-desc { display: none; }
+    .sig-inner { grid-template-columns: 1fr; text-align: center; }
+    .sig-photo { margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-name">Meridian</span>
+    <span class="nav-logo-tag">Built for Lending</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Work</a></li>
+    <li><a href="/about" class="active">About</a></li>
+  </ul>
+  <a href="/apply" class="nav-cta">Apply Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photo">
+    <img src="Photo_professionnel_Emmanuel.jpg" alt="Emmanuel Howard — Founder, Meridian"
+      onerror="this.parentElement.innerHTML='<div class=\'hero-photo-placeholder\'><span class=\'hero-photo-label\'>Emmanuel — photo</span></div>'">
+    <div class="hero-photo-overlay"></div>
+  </div>
+  <div class="hero-right">
+    <p class="hero-eyebrow">About Meridian</p>
+    <h1 class="hero-h1">A firm built on one conviction.</h1>
+    <p class="hero-body">Mortgage professionals deserve the best design and marketing in the industry. Not a slightly better template. Not a generic agency that learned the word "mortgage" last week. The best. Full stop.</p>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="mission-inner reveal">
+    <p class="mission-label">The mission</p>
+    <p class="mission-quote">"To make every mortgage professional we work with the most trusted, most recognizable name in their market — through design and marketing that actually works."</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="story-inner">
+    <div class="reveal">
+      <p class="story-nav-label">In this section</p>
+      <div class="story-nav-list">
+        <a href="#the-story" class="story-nav-item active">The story</a>
+        <a href="#the-gap" class="story-nav-item">The gap we saw</a>
+        <a href="#why-lending" class="story-nav-item">Why lending</a>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <p class="story-eyebrow">The story</p>
+      <h2 class="story-h2" id="the-story">Why Meridian exists.</h2>
+      <p class="story-body">Mortgage professionals sit at the centre of one of the most important decisions a person will ever make. They guide families into homes, help investors build portfolios, and shape the financial futures of their clients. The stakes are enormous.</p>
+      <p class="story-body" id="the-gap">And yet the industry's design and marketing rarely reflects that weight. Most lenders are represented online by templates that could belong to anyone. Their brand communicates nothing. Their website converts no one.</p>
+      <p class="story-body" id="why-lending">Because no firm has ever focused exclusively on this industry, mortgage professionals have never had a real alternative — until now. Meridian was built to be exactly that. One firm, one industry, one standard of work: the best in the business.</p>
+      <p class="story-callout">We chose the lending industry because the gap here is wider than anywhere else — and because closing that gap directly improves the financial lives of people who need good guidance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="values-max">
+    <div class="divider"></div>
+    <p class="eyebrow reveal">What we believe</p>
+    <h2 class="serif-h2 reveal">The principles Meridian is built on.</h2>
+    <div class="values-grid">
+      <div class="value-item reveal">
+        <div class="value-num">01 —</div>
+        <div class="value-title">Design is not decoration</div>
+        <div class="value-desc">Every visual decision either earns or loses trust. We treat design as a business tool, not an aesthetic exercise.</div>
+      </div>
+      <div class="value-item reveal reveal-delay-1">
+        <div class="value-num">02 —</div>
+        <div class="value-title">Specialisation over generalism</div>
+        <div class="value-desc">We work with one industry. That focus makes us better at what we do than any generalist agency can be.</div>
+      </div>
+      <div class="value-item reveal reveal-delay-2">
+        <div class="value-num">03 —</div>
+        <div class="value-title">Outcomes over deliverables</div>
+        <div class="value-desc">We measure success by client results — more enquiries, more trust, more deals — not by how a site looks in a portfolio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-max">
+    <div class="divider"></div>
+    <p class="eyebrow reveal">How we work</p>
+    <h2 class="serif-h2 reveal">What to expect when you work with Meridian.</h2>
+    <div class="process-list reveal">
+      <div class="process-row">
+        <div class="process-num">01</div>
+        <div class="process-title">Application &amp; fit call</div>
+        <div class="process-desc">You apply, we review it, and if it's a fit we book a short call to understand your goals, market, and what success looks like for you.</div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">02</div>
+        <div class="process-title">Strategy &amp; brief</div>
+        <div class="process-desc">We build a clear brief — your positioning, target client, competitive landscape. This separates good-looking sites from sites that convert.</div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">03</div>
+        <div class="process-title">Design &amp; build</div>
+        <div class="process-desc">Custom design, your approval, then build. No templates, no shortcuts. You are involved at every major decision point.</div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">04</div>
+        <div class="process-title">Launch &amp; handoff</div>
+        <div class="process-desc">We go live together. You get everything — files, logins, documentation. Nothing is held hostage.</div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">05</div>
+        <div class="process-title">Ongoing support</div>
+        <div class="process-desc">Your market changes. We stay available. Updates, additions, expansions — we are a long-term partner, not a one-time vendor.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER SIGNATURE -->
+<section class="founder-sig">
+  <div class="founder-sig-max">
+    <div class="divider"></div>
+    <div class="sig-inner reveal">
+      <div class="sig-photo">
+        <img src="Photo_professionnel_Emmanuel.jpg" alt="Emmanuel Howard"
+          onerror="this.parentElement.innerHTML='<div class=\'sig-photo-init\'>EH</div>'">
+      </div>
+      <div>
+        <div class="sig-name">Emmanuel Howard</div>
+        <div class="sig-role">Founder &amp; Creative Director, Meridian</div>
+        <p class="sig-bio">Emmanuel founded Meridian after recognizing that the lending industry — despite its enormous impact on people's lives — had been consistently underserved by the design and marketing world. His background spans brand identity, digital product design, and conversion-focused web development, all brought together in a firm built for one specific industry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="cta-inner reveal">
+    <p class="cta-eyebrow">Work with Meridian</p>
+    <h2 class="cta-h2">Apply and let's build something that closes deals.</h2>
+    <p class="cta-body">We review every application personally and respond within 48 hours.</p>
+    <a href="/apply" class="btn-bone">Apply Now</a>
+    <p class="cta-note">No commitment. Just a conversation.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Meridian</div>
+  <ul class="footer-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Work</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/apply">Apply</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Meridian · Built for Lending</div>
+</footer>
+
+<script src="meridian.js"></script>
+</body>
+</html>

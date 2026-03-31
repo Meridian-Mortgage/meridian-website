@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Meridian</title>
+<meta name="description" content="Meridian offers web design, branding, and marketing built exclusively for mortgage professionals. A complete system to win more clients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../meridian.css">
+<style>
+  /* ── HERO ── */
+  .hero { background: var(--obsidian); padding: 160px 64px 80px; border-bottom: 1px solid var(--dark-border); }
+  .hero-inner { max-width: 1200px; margin: 0 auto; }
+  .hero-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amber); margin-bottom: 32px; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+  .hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(52px, 8vw, 100px); font-weight: 400; line-height: 1.0; color: var(--cream); margin-bottom: 0; opacity: 0; animation: fadeUp 0.9s ease 0.3s forwards; }
+  .hero-h1-sub { font-family: 'Playfair Display', serif; font-size: clamp(52px, 8vw, 100px); font-weight: 400; line-height: 1.0; color: var(--charcoal); margin-bottom: 48px; opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards; }
+  .hero-body { font-size: 15px; font-weight: 300; color: var(--dark-muted); line-height: 1.8; max-width: 520px; opacity: 0; animation: fadeUp 0.9s ease 0.55s forwards; }
+
+  /* ── SYSTEM FLOW ── */
+  .flow { background: var(--obsidian); border-top: 1px solid var(--dark-border); padding: 72px 64px; }
+  .flow-inner { max-width: 1200px; margin: 0 auto; }
+  .flow-label { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 32px; }
+  .flow-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--dark-border); }
+  .flow-node { background: var(--obsidian); padding: 24px; transition: background 0.2s; }
+  .flow-node:hover { background: var(--ink); }
+  .flow-node.active { border-top: 2px solid var(--amber); }
+  .flow-node.soon { opacity: 0.3; }
+  .flow-num { font-size: 9px; font-weight: 500; letter-spacing: 0.14em; color: var(--amber); margin-bottom: 10px; font-variant-numeric: tabular-nums; }
+  .flow-title { font-size: 13px; font-weight: 500; color: var(--bone); margin-bottom: 4px; }
+  .flow-desc { font-size: 11px; font-weight: 300; color: var(--dark-faint); line-height: 1.55; }
+
+  /* ── WEB DESIGN ── */
+  .web { background: var(--parchment); border-top: 1px solid var(--light-border); padding: 100px 64px; }
+  .web-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: end; margin-bottom: 64px; }
+  .web-sub { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.8; margin-top: 16px; }
+  .web-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--light-border); margin-bottom: 56px; }
+  .web-item { background: var(--parchment); padding: 32px; transition: background 0.2s; }
+  .web-item:hover { background: #fff; }
+  .web-item-dash { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; color: var(--amber); margin-bottom: 12px; }
+  .web-item-title { font-size: 14px; font-weight: 500; color: var(--near-black); margin-bottom: 8px; }
+  .web-item-desc { font-size: 13px; font-weight: 300; color: var(--faint); line-height: 1.65; }
+  .process-label { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); margin-bottom: 16px; }
+  .process-track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--light-border); margin-bottom: 48px; }
+  .process-step { background: var(--parchment); padding: 20px 18px; transition: background 0.2s; }
+  .process-step:hover { background: #fff; }
+  .ps-num { font-size: 9px; font-weight: 500; color: var(--amber); margin-bottom: 8px; letter-spacing: 0.1em; }
+  .ps-name { font-size: 12px; font-weight: 500; color: var(--near-black); margin-bottom: 4px; }
+  .ps-desc { font-size: 11px; font-weight: 300; color: var(--faint); line-height: 1.5; }
+
+  /* ── BRANDING ── */
+  .branding { background: var(--parchment); padding: 0 64px 100px; }
+  .branding-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+  .branding-visual { background: var(--sand); border: 1px solid var(--light-border); height: 380px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .branding-visual-content { text-align: center; }
+  .branding-visual-logo { font-family: 'Playfair Display', serif; font-size: 28px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--near-black); margin-bottom: 8px; }
+  .branding-visual-tag { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--amber); margin-bottom: 32px; }
+  .branding-visual-swatches { display: flex; gap: 8px; justify-content: center; margin-bottom: 24px; }
+  .swatch { width: 32px; height: 32px; }
+  .branding-visual-type { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--muted); }
+  .includes-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); margin-bottom: 16px; margin-top: 32px; }
+  .includes-list { display: flex; flex-direction: column; gap: 1px; background: var(--light-border); }
+  .includes-item { background: var(--parchment); padding: 14px 18px; display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 300; color: var(--muted); transition: background 0.2s; }
+  .includes-item:hover { background: #fff; }
+  .includes-dot { width: 4px; height: 4px; background: var(--amber); flex-shrink: 0; }
+
+  /* ── COMING SOON ── */
+  .coming { background: var(--parchment); padding: 0 64px 100px; }
+  .coming-box { border: 1px solid var(--light-border); display: grid; grid-template-columns: 1fr 1fr; }
+  .coming-left { padding: 56px 48px; border-right: 1px solid var(--light-border); }
+  .coming-tag { display: inline-block; font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); border: 1px solid var(--bone); padding: 4px 10px; margin-bottom: 20px; }
+  .coming-h3 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 400; color: var(--near-black); line-height: 1.25; margin-bottom: 16px; }
+  .coming-desc { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.8; margin-bottom: 32px; }
+  .coming-right { padding: 56px 48px; }
+  .coming-services { display: flex; flex-direction: column; gap: 1px; background: var(--light-border); }
+  .coming-svc { background: var(--parchment); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
+  .coming-svc-name { font-size: 13px; font-weight: 400; color: var(--muted); }
+  .coming-svc-tag { font-size: 9px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero, .flow, .web, .branding, .coming { padding-left: 24px; padding-right: 24px; }
+    .web-intro, .branding-inner, .coming-box { grid-template-columns: 1fr; }
+    .coming-left { border-right: none; border-bottom: 1px solid var(--light-border); }
+    .flow-track, .process-track { grid-template-columns: 1fr 1fr; }
+    .web-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-name">Meridian</span>
+    <span class="nav-logo-tag">Built for Lending</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/services" class="active">Services</a></li>
+    <li><a href="/work">Work</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+  <a href="/apply" class="nav-cta">Apply Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Services</p>
+    <h1 class="hero-h1">Not a website.</h1>
+    <p class="hero-h1-sub">A system.</p>
+    <p class="hero-body">Every service we offer is designed to work together — brand, web, and marketing as one connected system with one goal: making you the most trusted professional in your market.</p>
+  </div>
+</section>
+
+<!-- SYSTEM FLOW -->
+<div class="flow">
+  <div class="flow-inner">
+    <p class="flow-label">The system at a glance</p>
+    <div class="flow-track">
+      <div class="flow-node active reveal">
+        <div class="flow-num">01</div>
+        <div class="flow-title">Brand &amp; Identity</div>
+        <div class="flow-desc">Logo, color, type — the foundation</div>
+      </div>
+      <div class="flow-node active reveal reveal-delay-1">
+        <div class="flow-num">02</div>
+        <div class="flow-title">Web Design</div>
+        <div class="flow-desc">Custom site, built to convert</div>
+      </div>
+      <div class="flow-node active reveal reveal-delay-2">
+        <div class="flow-num">03</div>
+        <div class="flow-title">SEO</div>
+        <div class="flow-desc">Search visibility, built in from day one</div>
+      </div>
+      <div class="flow-node soon reveal reveal-delay-3">
+        <div class="flow-num">04</div>
+        <div class="flow-title">Acquisition</div>
+        <div class="flow-desc">Paid ads &amp; full-funnel marketing</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WEB DESIGN -->
+<section class="web">
+  <div class="section-max">
+    <div class="web-intro">
+      <div class="reveal">
+        <p class="eyebrow">Service 01 — Flagship</p>
+        <h2 class="serif-h2">Web Design</h2>
+        <p class="web-sub">The best mortgage websites in the industry. Built from scratch, designed to convert, and optimised to make you look like the expert you already are.</p>
+      </div>
+      <div class="reveal reveal-delay-1" style="padding-bottom: 4px;">
+        <p style="font-size:13px; font-weight:300; color:var(--faint); line-height:1.75;">No templates. No page builders. Every site is designed specifically for you, your market, and the clients you want to attract. We build sites that perform — in search, on mobile, and in the minds of people who land on them.</p>
+      </div>
+    </div>
+
+    <div class="web-grid reveal">
+      <div class="web-item">
+        <div class="web-item-dash">—</div>
+        <div class="web-item-title">Custom design</div>
+        <div class="web-item-desc">Every layout decision is made for your brand, not recycled from a template library.</div>
+      </div>
+      <div class="web-item">
+        <div class="web-item-dash">—</div>
+        <div class="web-item-title">Conversion-optimised</div>
+        <div class="web-item-desc">Built to turn visitors into enquiries. Structure, copy hierarchy, and CTAs all working together.</div>
+      </div>
+      <div class="web-item">
+        <div class="web-item-dash">—</div>
+        <div class="web-item-title">On-page SEO</div>
+        <div class="web-item-desc">Meta structure, schema, site speed, and keyword architecture — built in from day one.</div>
+      </div>
+      <div class="web-item">
+        <div class="web-item-dash">—</div>
+        <div class="web-item-title">Mobile-first</div>
+        <div class="web-item-desc">Designed for how your clients actually browse — phone first, desktop second, always.</div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <p class="process-label">How it works</p>
+      <div class="process-track">
+        <div class="process-step"><div class="ps-num">01</div><div class="ps-name">Discovery</div><div class="ps-desc">Strategy call, goals, brief</div></div>
+        <div class="process-step"><div class="ps-num">02</div><div class="ps-name">Design</div><div class="ps-desc">Wireframe + visual design</div></div>
+        <div class="process-step"><div class="ps-num">03</div><div class="ps-name">Build</div><div class="ps-desc">Development &amp; QA</div></div>
+        <div class="process-step"><div class="ps-num">04</div><div class="ps-name">Launch</div><div class="ps-desc">Go live + full handoff</div></div>
+        <div class="process-step"><div class="ps-num">05</div><div class="ps-name">Support</div><div class="ps-desc">Ongoing updates</div></div>
+      </div>
+      <a href="/apply" class="apply-btn">Apply Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDING -->
+<section class="branding">
+  <div class="section-max">
+    <div class="divider"></div>
+    <div class="branding-inner">
+      <div class="branding-visual reveal">
+        <div class="branding-visual-content">
+          <div class="branding-visual-logo">Your Name</div>
+          <div class="branding-visual-tag">Mortgage Professional</div>
+          <div class="branding-visual-swatches">
+            <div class="swatch" style="background:#1A1612;"></div>
+            <div class="swatch" style="background:#D4A853;"></div>
+            <div class="swatch" style="background:#D4C4A8;"></div>
+            <div class="swatch" style="background:#FAF8F5; border:1px solid #EDE8E0;"></div>
+          </div>
+          <div class="branding-visual-type">Playfair Display · DM Sans</div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <p class="eyebrow">Service 02 — Foundation</p>
+        <h2 class="serif-h2">Branding &amp; Identity</h2>
+        <p class="body-light" style="margin-bottom:0;">Your brand is the first thing a potential client judges — before they read a word, before they call. It needs to communicate trust, expertise, and professionalism in under three seconds.</p>
+        <p class="includes-label">What's included</p>
+        <div class="includes-list">
+          <div class="includes-item"><div class="includes-dot"></div>Logo system — primary, compact, and icon variants</div>
+          <div class="includes-item"><div class="includes-dot"></div>Color palette &amp; usage guidelines</div>
+          <div class="includes-item"><div class="includes-dot"></div>Typography system</div>
+          <div class="includes-item"><div class="includes-dot"></div>Brand style guide (PDF)</div>
+          <div class="includes-item"><div class="includes-dot"></div>Business card &amp; email signature</div>
+          <div class="includes-item"><div class="includes-dot"></div>Social profile assets</div>
+        </div>
+        <div style="margin-top:32px;">
+          <a href="/apply" class="apply-btn">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="coming">
+  <div class="section-max">
+    <div class="divider"></div>
+    <div class="coming-box reveal">
+      <div class="coming-left">
+        <div class="coming-tag">Coming soon</div>
+        <h3 class="coming-h3">The next phase of the system.</h3>
+        <p class="coming-desc">Acquisition and full-service marketing are being added to the Meridian system. Join the list to be notified when they launch.</p>
+        <a href="/apply" class="apply-btn" style="font-size:11px; padding:11px 22px;">Join the waitlist</a>
+      </div>
+      <div class="coming-right">
+        <p class="process-label" style="margin-bottom:12px;">Upcoming services</p>
+        <div class="coming-services">
+          <div class="coming-svc"><span class="coming-svc-name">Search Engine Optimisation campaigns</span><span class="coming-svc-tag">Soon</span></div>
+          <div class="coming-svc"><span class="coming-svc-name">Google Ads</span><span class="coming-svc-tag">Soon</span></div>
+          <div class="coming-svc"><span class="coming-svc-name">Social Media Ads</span><span class="coming-svc-tag">Soon</span></div>
+          <div class="coming-svc"><span class="coming-svc-name">Email Marketing</span><span class="coming-svc-tag">Soon</span></div>
+          <div class="coming-svc"><span class="coming-svc-name">Full-Service Retainer</span><span class="coming-svc-tag">Soon</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="cta-inner reveal">
+    <p class="cta-eyebrow">Ready to start</p>
+    <h2 class="cta-h2">Apply to work with Meridian.</h2>
+    <p class="cta-body">Tell us about your business. We review every application personally and respond within 48 hours.</p>
+    <a href="/apply" class="btn-bone">Apply Now</a>
+    <p class="cta-note">No pricing page. No commitment. Just a conversation.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Meridian</div>
+  <ul class="footer-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Work</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/apply">Apply</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Meridian · Built for Lending</div>
+</footer>
+
+<script src="../meridian.js"></script>
+</body>
+</html>
