@@ -5,10 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply — Meridian</title>
 <meta name="description" content="Apply to work with Meridian. We review every application personally and respond within 48 hours.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Apply — Meridian">
+<meta property="og:description" content="Apply to work with Meridian. We review every application personally and respond within 48 hours.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="meridian.css">
+<link rel="stylesheet" href="meridian.css?v=4">
 <style>
   /* ── HERO ── */
   .hero { background: var(--obsidian); padding: 160px 64px 80px; text-align: center; border-bottom: 1px solid var(--dark-border); }
@@ -89,7 +93,8 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .hero, .form-section, .next { padding-left: 24px; padding-right: 24px; }
+    .hero { padding-top: 100px; padding-bottom: 48px; padding-left: 24px; padding-right: 24px; }
+    .form-section, .next { padding-left: 24px; padding-right: 24px; }
     .form-section-inner { grid-template-columns: 1fr; }
     .sidebar { position: static; }
     .form-row-2 { grid-template-columns: 1fr; }
@@ -100,7 +105,7 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <span class="nav-logo-name">Meridian</span>
     <span class="nav-logo-tag">Built for Lending</span>
   </a>
@@ -238,12 +243,10 @@
       </div>
 
       <div class="sidebar-dark">
-        <p class="sidebar-dark-label">From the team</p>
-        <p class="sidebar-quote-text">"Add your first client testimonial here when available."</p>
-        <p class="sidebar-quote-author">— Client Name · Mortgage Professional</p>
+        <p class="sidebar-dark-label">From the founder</p>
         <div class="sidebar-founder">
           <div class="sidebar-avatar">
-            <img src="Photo_professionnel_Emmanuel.jpg" alt="Emmanuel Howard"
+            <img src="images/profile1.jpg" alt="Emmanuel Howard"
               onerror="this.parentElement.innerHTML='<div class=\'sidebar-avatar-init\'>EH</div>'">
           </div>
           <div>
@@ -291,24 +294,22 @@
       <p class="footer-desc">Design &amp; marketing for mortgage professionals across North America.</p>
     </div>
     <div>
-      <div class="footer-col-label">Pages</div>
+      <div class="footer-col-label">Navigate</div>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="apply.html">Apply</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-label">Work with us</div>
-      <a href="apply.html" class="footer-contact-link">Start an application</a>
-      <a href="about.html" class="footer-contact-link">About Meridian</a>
+      <div class="footer-col-label">Work with Meridian</div>
+      <p class="footer-desc" style="margin-bottom: 24px;">Applications take 3 minutes. We respond within 48 hours.</p>
       <a href="apply.html" class="footer-apply-cta">Apply Now →</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 Meridian · Built for Lending</div>
+    <div class="footer-copy">© 2026 Meridian · Built for Lending</div>
     <div class="footer-copy">North America</div>
   </div>
 </footer>

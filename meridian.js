@@ -46,11 +46,36 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
       if (!valid) return;
-      applyForm.style.display = 'none';
-      document.getElementById('success-state').classList.add('visible');
-      window.scrollTo({ top: document.getElementById('form-container').offsetTop - 100, behavior: 'smooth' });
-      // TODO: Replace with actual form submission endpoint (Formspree, Netlify Forms, etc.)
-      // fetch('/api/apply', { method: 'POST', body: new FormData(applyForm) });
+
+      var submitBtn = applyForm.querySelector('.submit-btn');
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      // ── FORMSPREE ENDPOINT ──
+      // 1. Go to https://formspree.io and create a free account
+      // 2. Create a new form, copy your endpoint URL
+      // 3. Replace YOUR_FORM_ID below with your actual ID (e.g. xpzvwqab)
+      fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        body: new FormData(applyForm),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function (res) {
+        if (res.ok) {
+          applyForm.style.display = 'none';
+          document.getElementById('success-state').classList.add('visible');
+          window.scrollTo({ top: document.getElementById('form-container').offsetTop - 100, behavior: 'smooth' });
+        } else {
+          submitBtn.textContent = 'Submit application';
+          submitBtn.disabled = false;
+          submitBtn.style.background = '#c0392b';
+        }
+      })
+      .catch(function () {
+        submitBtn.textContent = 'Submit application';
+        submitBtn.disabled = false;
+        submitBtn.style.background = '#c0392b';
+      });
     });
   }
 

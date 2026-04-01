@@ -204,7 +204,7 @@ nav {
   padding: 120px 64px;
 }
 
-.cta-inner { max-width: 560px; }
+.cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
 
 .cta-eyebrow {
   font-size: 10px;
@@ -383,8 +383,14 @@ footer {
 @media (max-width: 900px) {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
-  .final-cta { padding-left: 24px; padding-right: 24px; }
+  .final-cta { padding: 72px 24px; }
   .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 24px 40px; }
   .footer-bottom { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
   .footer-links { flex-direction: row; flex-wrap: wrap; gap: 16px; }
+}
+
+@media (max-width: 480px) {
+  .nav-cta { padding: 8px 16px; font-size: 10px; }
+  .btn-primary, .btn-bone { padding: 14px 24px; }
+  .cta-h2 { font-size: clamp(28px, 8vw, 40px); }
 }

@@ -5,19 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Meridian</title>
 <meta name="description" content="Meridian is a design and marketing firm built exclusively for the lending industry. Learn about our mission and how we work.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="About — Meridian">
+<meta property="og:description" content="Meridian is a design and marketing firm built exclusively for the lending industry. Learn about our mission and how we work.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="meridian.css">
+<link rel="stylesheet" href="meridian.css?v=4">
 <style>
   /* ── HERO ── */
-  .hero { background: var(--obsidian); padding-top: 62px; min-height: 90vh; display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--dark-border); }
-  .hero-photo { position: relative; overflow: hidden; background: var(--ink); min-height: 560px; }
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: grayscale(20%) contrast(1.05); display: block; }
-  .hero-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to right, transparent 70%, rgba(13,13,11,0.6) 100%), linear-gradient(to top, rgba(13,13,11,0.3) 0%, transparent 30%); }
-  .hero-photo-placeholder { width: 100%; height: 100%; background: var(--ink); display: flex; align-items: center; justify-content: center; min-height: 560px; }
-  .hero-photo-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal); border: 1px dashed var(--charcoal); padding: 8px 20px; }
-  .hero-right { padding: 100px 72px 80px 64px; display: flex; flex-direction: column; justify-content: flex-end; border-left: 1px solid var(--dark-border); }
+  .hero { background: var(--obsidian); padding: 160px 64px 80px; border-bottom: 1px solid var(--dark-border); }
+  .hero-inner { max-width: 1200px; margin: 0 auto; }
   .hero-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amber); margin-bottom: 28px; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
   .hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 400; line-height: 1.15; color: var(--cream); margin-bottom: 24px; opacity: 0; animation: fadeUp 0.9s ease 0.35s forwards; }
   .hero-body { font-size: 15px; font-weight: 300; color: var(--dark-muted); line-height: 1.8; opacity: 0; animation: fadeUp 0.9s ease 0.5s forwards; }
@@ -74,16 +73,14 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-photo { min-height: 320px; }
-    .hero-right { padding: 64px 24px; border-left: none; border-top: 1px solid var(--dark-border); }
+    .hero { padding: 100px 24px 60px; }
     .mission, .story, .values, .process, .founder-sig { padding-left: 24px; padding-right: 24px; }
     .story-inner { grid-template-columns: 1fr; }
     .story-nav-list { position: static; }
     .values-grid { grid-template-columns: 1fr; }
     .process-row { grid-template-columns: 40px 1fr; }
     .process-desc { display: none; }
-    .sig-inner { grid-template-columns: 1fr; text-align: center; }
+    .sig-inner { grid-template-columns: 1fr; text-align: center; padding: 28px 20px; }
     .sig-photo { margin: 0 auto; }
   }
 </style>
@@ -91,7 +88,7 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <span class="nav-logo-name">Meridian</span>
     <span class="nav-logo-tag">Built for Lending</span>
   </a>
@@ -106,12 +103,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-photo">
-    <img src="Photo_professionnel_Emmanuel.jpg" alt="Emmanuel Howard — Founder, Meridian"
-      onerror="this.parentElement.innerHTML='<div class=\'hero-photo-placeholder\'><span class=\'hero-photo-label\'>Emmanuel — photo</span></div>'">
-    <div class="hero-photo-overlay"></div>
-  </div>
-  <div class="hero-right">
+  <div class="hero-inner">
     <p class="hero-eyebrow">About Meridian</p>
     <h1 class="hero-h1">A firm built on one conviction.</h1>
     <p class="hero-body">Mortgage professionals deserve the best design and marketing in the industry. Not a slightly better template. Not a generic agency that learned the word "mortgage" last week. The best. Full stop.</p>
@@ -216,7 +208,7 @@
     <div class="divider"></div>
     <div class="sig-inner reveal">
       <div class="sig-photo">
-        <img src="Photo_professionnel_Emmanuel.jpg" alt="Emmanuel Howard"
+        <img src="images/profile2.jpg" alt="Emmanuel Howard"
           onerror="this.parentElement.innerHTML='<div class=\'sig-photo-init\'>EH</div>'">
       </div>
       <div>
@@ -232,10 +224,10 @@
 <section class="final-cta">
   <div class="cta-inner reveal">
     <p class="cta-eyebrow">Work with Meridian</p>
-    <h2 class="cta-h2">Apply and let's build something that closes deals.</h2>
-    <p class="cta-body">We review every application personally and respond within 48 hours.</p>
-    <a href="apply.html" class="btn-bone">Apply Now</a>
-    <p class="cta-note">No commitment. Just a conversation.</p>
+    <h2 class="cta-h2">Built to close deals.</h2>
+    <p class="cta-body">Applications take 3 minutes. We review every one personally and respond within 48 hours.</p>
+    
+    <a href="apply.html" class="btn-primary">Apply Now</a>
   </div>
 </section>
 
@@ -247,24 +239,22 @@
       <p class="footer-desc">Design &amp; marketing for mortgage professionals across North America.</p>
     </div>
     <div>
-      <div class="footer-col-label">Pages</div>
+      <div class="footer-col-label">Navigate</div>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="apply.html">Apply</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-label">Work with us</div>
-      <a href="apply.html" class="footer-contact-link">Start an application</a>
-      <a href="about.html" class="footer-contact-link">About Meridian</a>
+      <div class="footer-col-label">Work with Meridian</div>
+      <p class="footer-desc" style="margin-bottom: 24px;">Applications take 3 minutes. We respond within 48 hours.</p>
       <a href="apply.html" class="footer-apply-cta">Apply Now →</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 Meridian · Built for Lending</div>
+    <div class="footer-copy">© 2026 Meridian · Built for Lending</div>
     <div class="footer-copy">North America</div>
   </div>
 </footer>
