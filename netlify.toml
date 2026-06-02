@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Netlify's official Next.js runtime. Handles SSR, route handlers
+# (sitemap, robots, opengraph-image), and dynamic routes.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

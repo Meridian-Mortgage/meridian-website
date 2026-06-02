@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background: #0f0f0f;
+  color: #0f0f0f;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: var(--font-sans), Inter, system-ui, sans-serif;
+  overscroll-behavior-y: none;
+}
+
+::selection {
+  background: #c9a961;
+  color: #0f0f0f;
+}
+
+.font-serif {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+/* Vertical infinite scroll used in the Phrases section.
+   The list is duplicated so translating by -50% lands on a seamless loop. */
+@keyframes loan-scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-loan-scroll {
+  animation: loan-scroll 22s linear infinite;
+}
+
+/* Scroll-triggered reveal. Starts slightly down + transparent, settles in place. */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-shown {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image inside a Reveal scales gently down from 1.04 to 1.0 as the reveal
+   settles. Used on big editorial photos. */
+.reveal-image-zoom {
+  transform: scale(1.04);
+  transition: transform 1200ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+.reveal-shown .reveal-image-zoom {
+  transform: scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-image-zoom,
+  .reveal-shown .reveal-image-zoom {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Hero load: staggered fade + rise. One keyframe, four delays.
+   The element is invisible until the animation fires, so there's no flash. */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-rise {
+  opacity: 0;
+  animation: hero-rise 720ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hero-rise-1 {
+  animation-delay: 80ms;
+}
+.hero-rise-2 {
+  animation-delay: 200ms;
+}
+.hero-rise-3 {
+  animation-delay: 360ms;
+}
+.hero-rise-4 {
+  animation-delay: 520ms;
+}
+
+/* Mega menu mount: gentle fade in + tiny rise. */
+@keyframes mega-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-mega-in {
+  animation: mega-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Nav background transition. Matches the mega-menu mount curve & duration
+   so the nav darkens at the exact same beat the dropdown appears. */
+.nav-bg-sync {
+  transition: background-color 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scroll-aware nav: bg + text + border all transition together so the nav
+   smoothly adapts as different-tone sections pass behind it. Tuned to feel
+   smooth on slow scroll while still landing the new color quickly on a
+   fast flick up or down. */
+.nav-transition {
+  transition:
+    background-color 450ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    color 450ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 450ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    backdrop-filter 450ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Testimonial cross-fade. The portrait + quote get a fresh React key on each
+   slide change, so this animation re-runs as a soft fade up. */
+@keyframes testimonial-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.testimonial-fade {
+  animation: testimonial-fade 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Progress bar fill: scales horizontally from 0 → 1 over the slide duration.
+   Driven linearly so the bar feels like a timer, not a tween. */
+@keyframes testimonial-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.testimonial-progress {
+  animation: testimonial-progress 7500ms linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-fade,
+  .testimonial-progress {
+    animation: none;
+  }
+}
+
+/* Mega menu items: staggered fade in. The delays cap at ~6 items. */
+@keyframes mega-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-mega-item {
+  animation: mega-item-in 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-loan-scroll,
+  .hero-rise,
+  .animate-mega-in,
+  .animate-mega-item {
+    animation: none;
+  }
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .hero-rise {
+    opacity: 1;
+  }
+}

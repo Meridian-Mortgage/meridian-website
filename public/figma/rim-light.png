@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle id="Rim light" cx="450" cy="450" r="450" fill="url(#paint0_radial_0_6)"/>
+<defs>
+<radialGradient id="paint0_radial_0_6" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(450 450) scale(900)">
+<stop stop-color="#D9A861" stop-opacity="0.22"/>
+<stop offset="0.6" stop-color="#D9A861" stop-opacity="0.06"/>
+<stop offset="1" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>
